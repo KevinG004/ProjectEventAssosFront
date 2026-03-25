@@ -1,2 +1,43 @@
-<nav>
+<nav class="navbar navbar-expand-lg w-100 custom-nav">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">Navbar</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 mb-2 mb-lg-0 justify-content-between align-items-center">
+        
+        <li class="nav-item">
+          <a class="nav-link active text-white" href="#">Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">about</a>
+        </li>
+
+        <li class="nav-item" ngbDropdown display="dynamic">
+          <a class="nav-link" id="navDropdown" ngbDropdownToggle role="button">
+             <img src="asset/ImageConnexion.png" 
+                  alt="Bootstrap" width="30" height="24">
+          </a>
+          <div ngbDropdownMenu aria-labelledby="navDropdown" class="dropdown-menu-end">
+            <button ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <div class="dropdown-divider"></div>
+            <button ngbDropdownItem>Something else</button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
 </nav>

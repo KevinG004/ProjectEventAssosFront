@@ -1,0 +1,28 @@
+.custom-nav, 
+.container-fluid, 
+.collapse, 
+.navbar-nav {
+  overflow: visible !important;
+}
+
+
+.custom-nav {
+  background-color: #37a337 !important; 
+  min-height: 60px;
+}
+
+.nav-item[ngbDropdown] {
+  position: relative !important;
+}
+
+.dropdown-menu {
+  position: absolute !important;
+  z-index: 1050 !important;
+  background-color: white !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  margin-top: 10px !important;
+}
+
+.dropdown-item {
+  color: #212529 !important;
+}
