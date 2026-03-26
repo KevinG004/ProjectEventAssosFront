@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Acceuil } from './Features/acceuil/acceuil';
+import { Acceuil } from './Features/accueil/accueil';
 import { Evenements } from './Features/evenements/evenements';
 import { Contact } from './Features/contact/contact';
 
