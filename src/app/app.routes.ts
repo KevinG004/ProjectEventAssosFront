@@ -5,13 +5,13 @@ import { Contact } from './Features/contact/contact';
 
 export const routes: Routes = [
     {
-        path: 'acceuil',
+        path: 'accueil',
         component: Acceuil
     },
 
     {
         path: '',
-        redirectTo: "acceuil",
+        redirectTo: "accueil",
         pathMatch: 'full'
     },
 
