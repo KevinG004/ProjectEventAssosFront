@@ -1,0 +1,49 @@
+.custom-footer{
+    background-color: #37a337 !important;
+}
+.container{
+    display: flex;
+    align-items: center;
+
+    .logo{
+        flex:30;
+    }
+    .contact{
+        flex:30;
+        display: flex;
+        .directcolumn{
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-item span{
+            color: white;
+            font-size: 0.9rem;
+        }
+        .imgLogo{
+            height: 30px;
+            object-fit: contain;
+        }
+    }
+    .redirectionPage{
+        flex:30;
+        display: flex;
+        .redirectColumn{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-item{
+            color: white;
+            font-size: 1rem;
+        }
+    }
+    .copyrightSiege{
+        flex:30;
+        flex-direction: column;
+    }
+}
+
+
+.imgLogo{
+            height: 60px;
+        }

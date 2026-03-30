@@ -2,11 +2,12 @@
     <app-navbar />
 </header>
 
-<div class="container mt-3">
-    <div class="menu"></div>
-    <main>
-        <div class="content">
-            <router-outlet />
-        </div>
-    </main>
-</div>
+<main class="flex-grow-1"> 
+    <div class="container mt-3">
+        <router-outlet />
+    </div>
+</main>
+
+<footer>
+    <app-footer />
+</footer>
