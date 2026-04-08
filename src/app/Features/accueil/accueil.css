@@ -1,0 +1,25 @@
+.accueil-wrapper {
+  position: relative;
+}
+
+section {
+  max-width: 70%;
+  margin: auto;
+  padding: 20px;
+}
+
+.side-img {
+  position: fixed;
+  top: 50px;
+  width: 28%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.side-img-left {
+  left: 0;
+}
+
+.side-img-right {
+  right: 0;
+}

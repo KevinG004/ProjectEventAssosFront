@@ -1,0 +1,75 @@
+<div class="register-wrapper">
+  <div class="register-card">
+    <h1>Créer un compte</h1>
+
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+      <div class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input
+          type="text"
+          id="pseudo"
+          name="pseudo"
+          [(ngModel)]="formData.pseudo"
+          required
+          minlength="3"
+          #pseudo="ngModel"
+          placeholder="Votre pseudo"
+        />
+        @if (pseudo.invalid && pseudo.touched) {
+          <span class="error">Le pseudo doit contenir au moins X caractères.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="motDePasse">Mot de passe</label>
+        <input
+          type="password"
+          id="motDePasse"
+          name="motDePasse"
+          [(ngModel)]="formData.motDePasse" required
+          minlength="12"
+          #motDePasse="ngModel"
+          placeholder="Votre mot de passe"
+        />
+        @if (motDePasse.invalid && motDePasse.touched) {
+          <span class="error">Le mot de passe doit contenir au moins 12 caractères, 1 caractères spécial et une majuscule.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select
+          id="genre"
+          name="genre"
+          [(ngModel)]="formData.genre" required
+          #genre="ngModel"
+        >
+          <option value="homme">Homme</option>
+          <option value="femme">Femme</option>
+          <option value="autre">Hélicoptère de combat</option>
+        </select>
+        @if (genre.invalid && genre.touched) {
+          <span class="error">Veuillez sélectionner un genre.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="dateNaissance">Date de naissance</label>
+        <input
+          type="date"
+          id="dateNaissance"
+          name="dateNaissance"
+          [(ngModel)]="formData.dateNaissance" required
+          #dateNaissance="ngModel"
+        />
+        @if (dateNaissance.invalid && dateNaissance.touched) {
+          <span class="error">Veuillez indiquer votre date de naissance.</span>
+        }
+      </div>
+
+      <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
+
+    </form>
+  </div>
+</div>
