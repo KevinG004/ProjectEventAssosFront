@@ -1,0 +1,52 @@
+<div class="register-wrapper">
+  <div class="register-card">
+    <h1>Créer un compte</h1>
+
+    <form [formGroup]="registerForm">                                            
+
+      <div class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input id="pseudo" formControlName="pseudo" type="text" placeholder="Votre pseudo" />  
+        @if (pseudo.invalid && pseudo.touched) {
+          <span class="error">Le pseudo doit contenir entre 3 et 50 caractères.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="motDePasse">Mot de passe</label>
+        <input id="motDePasse" formControlName="motDePasse" type="password" placeholder="Votre mot de passe" />  
+        @if (motDePasse.invalid && motDePasse.touched) {
+          <span class="error">Le mot de passe doit contenir au moins 12 caractères, 1 majuscule et 1 caractère spécial.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Genre</label>
+        <select id="genre" formControlName="genre">                                     
+          <option value="">-- Sélectionner --</option>
+          <option value="H">Homme</option>
+          <option value="F">Femme</option>
+          <option value="X">Hélicoptère de combat</option>
+        </select>
+        @if (genre.invalid && genre.touched) {
+          <span class="error">Veuillez sélectionner un genre.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="dateNaissance">Date de naissance</label>
+        <input id="dateNaissance" formControlName="dateNaissance" type="date" />        
+        @if (dateNaissance.invalid && dateNaissance.touched) {
+          <span class="error">Veuillez indiquer votre date de naissance.</span>
+        }
+      </div>
+
+    </form>
+
+    @if (formInvalid) {
+      <span class="error">Formulaire incorrect, veuillez vérifier vos informations.</span> 
+    }
+
+    <button (click)="onSubmit()" [disabled]="registerForm.invalid">S'inscrire</button>  
+  </div>
+</div>

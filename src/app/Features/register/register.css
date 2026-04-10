@@ -1,0 +1,80 @@
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.register-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 48px;
+  width: 100%;
+  max-width: 840px;
+}
+
+.register-card h1 {
+  margin: 0 0 28px;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #37a337;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #37a337;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #37a337;
+  box-shadow: 0 0 0 3px rgba(55, 163, 55, 0.15);
+}
+
+.error {
+  font-size: 0.8rem;
+  color: #e53935;
+}
+
+button {
+  margin-top: 8px;
+  padding: 13px;
+  width: 100%;
+  background: #37a337;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #2d8f2d;
+}
+
+button:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
