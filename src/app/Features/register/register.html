@@ -24,9 +24,9 @@
         <label for="genre">Genre</label>
         <select id="genre" formControlName="genre">                                     
           <option value="">-- Sélectionner --</option>
-          <option value="homme">Homme</option>
-          <option value="femme">Femme</option>
-          <option value="autre">Hélicoptère de combat</option>
+          <option value="H">Homme</option>
+          <option value="F">Femme</option>
+          <option value="X">Hélicoptère de combat</option>
         </select>
         @if (genre.invalid && genre.touched) {
           <span class="error">Veuillez sélectionner un genre.</span>

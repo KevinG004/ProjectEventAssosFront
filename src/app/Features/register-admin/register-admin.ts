@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { emailValidators } from '../../Shared/Validators/emailValidator';
 
 @Component({
   selector: 'app-register-admin',
@@ -14,8 +15,8 @@ export class RegisterAdmin {
 
   constructor(private formBuilder: FormBuilder) {
     this.registerAdminForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      number: ['', [Validators.required, Validators.min(0)]],
+      email: ['', [Validators.required, emailValidators()]],
+      number: ['', [Validators.required, Validators.min(1),Validators.max(2)]],
     });
   }
 
