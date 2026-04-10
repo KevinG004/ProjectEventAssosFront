@@ -22,21 +22,27 @@
   color: #37a337;
 }
 
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 16px;
 }
 
-.form-group label {
+.form-group label,
+.register-form > label {
   font-size: 0.9rem;
   font-weight: 600;
   color: #37a337;
 }
 
 .form-group input,
-.form-group select {
+.register-form > input {
   padding: 12px 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -46,7 +52,7 @@
 }
 
 .form-group input:focus,
-.form-group select:focus {
+.register-form > input:focus {
   border-color: #37a337;
   box-shadow: 0 0 0 3px rgba(55, 163, 55, 0.15);
 }
@@ -56,10 +62,9 @@
   color: #e53935;
 }
 
-button {
-  margin-top: 8px;
+.btn-register {
+  margin-top: 4px;
   padding: 13px;
-  width: 100%;
   background: #37a337;
   color: #fff;
   border: none;
@@ -70,11 +75,11 @@ button {
   transition: background 0.2s;
 }
 
-button:hover:not(:disabled) {
+.btn-register:hover {
   background: #2d8f2d;
 }
 
-button:disabled {
+.btn-register:disabled {
   background: #a5d6a7;
   cursor: not-allowed;
 }

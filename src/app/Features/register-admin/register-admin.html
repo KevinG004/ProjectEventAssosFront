@@ -1,0 +1,29 @@
+<div class="register-wrapper">
+  <div class="register-card">
+    <h1>Créer un administrateur</h1>
+
+    <form class="register-form" [formGroup]="registerAdminForm">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          autocomplete="email"
+          formControlName="email"
+        />
+      <div class="form-group">
+        <label for="number">Numéro</label>
+        <input
+          id="number"
+          type="number"
+          placeholder="Entrez un nombre"
+          min="0"
+          formControlName="number"
+        />
+      </div>
+
+      
+    <button (click)="onSubmit()" [disabled]="registerAdminForm.invalid">Créer</button>
+    </form>
+  </div>
+</div>
