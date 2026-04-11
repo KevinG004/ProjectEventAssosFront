@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AbstractControl, ReactiveFormsModule, ValidatorFn, ValidationErrors, Validators } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserFirstLogin } from '../../Shared/Models/user-model/user-model-request';
+import { authService } from '../../Core/Services/authService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +14,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class Register {
   registerForm: FormGroup;
   formInvalid = false;
+
+  private readonly _authService = inject(authService);
+  private readonly _router: Router = inject(Router)
 
   passwordValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -42,8 +48,22 @@ export class Register {
 
   onSubmit(): void {                                                                   
     if (this.registerForm.valid) {                                                     
-      console.log('Formulaire :', this.registerForm.value);                     
-    } else {
+      const registerUser: UserFirstLogin = {
+        userName: this.registerForm.value.pseudo,
+        password: this.registerForm.value.motDePasse,
+        birthDate: this.registerForm.value.dateNaissance,
+        gender: this.registerForm.value.genre,
+      }
+      this._authService.firstLoginUser(registerUser).subscribe({
+        next: () => {
+          this._router.navigate(['accueil'])
+        },
+        error: () => {
+          this.formInvalid = true; 
+        }
+      })            
+    } 
+    else {
       this.formInvalid = true;                                                         
     }
   }

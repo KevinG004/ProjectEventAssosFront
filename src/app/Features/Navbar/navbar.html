@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg w-100 custom-nav">
   <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">Navbar</a>
+    <a class="navbar-brand text-white" routerLink="accueil">Navbar</a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
@@ -21,7 +21,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">about</a>
+          <a class="nav-link text-white" routerLink="accueil">about</a>
         </li>
 
         <li class="nav-item" ngbDropdown display="dynamic">
@@ -31,7 +31,7 @@
           </a>
           <div ngbDropdownMenu aria-labelledby="navDropdown" class="dropdown-menu-end">
             <button ngbDropdownItem routerLink="login">Login</button>
-            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem routerLink="registerAdmin">RegisterAdmin</button>
             <div class="dropdown-divider"></div>
             <button ngbDropdownItem>Something else</button>
           </div>
