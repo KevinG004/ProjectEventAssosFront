@@ -1,1 +1,77 @@
-<p>evenements works!</p>
+<div class="evenements-wrapper">
+  <div class="evenements-header">
+    <h1>Événements</h1>
+    <button class="btn-create" routerLink="create-event">+ Créer un événement</button>
+  </div>
+
+  @if (loading()) {
+    <div class="loading">Chargement...</div>
+  }
+
+  @if (error()) {
+    <div class="error-message">
+      Impossible de charger les événements. Veuillez réessayer.
+    </div>
+  }
+
+  @if (!loading() && !error()) {
+    @if (events().length === 0) {
+      <p class="no-events">Aucun événement disponible.</p>
+    } @else {
+      <div class="events-grid">
+        @for (event of events(); track event.id) {
+          <div class="event-card">
+            @if (event.coverImageUrl) {
+              <img [src]="event.coverImageUrl" [alt]="event.nom" class="event-img" />
+            } @else {
+              <div class="event-img-placeholder"></div>
+            }
+            <div class="event-body">
+              <h2 class="event-title">{{ event.nom }}</h2>
+              <p class="event-description">{{ event.description }}</p>
+              <div class="event-meta">
+                @if (event.lieu) {
+                  <span>📍 {{ event.lieu }}</span>
+                }
+                <span>🗓 {{ event.dateHeureDebut | date: 'dd/MM/yyyy HH:mm' }}</span>
+                <span>👥 {{ event.nbParticipants }} / {{ event.maxParticipants }}</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="pagination">
+        <button
+          class="page-btn"
+          (click)="goToPage(currentPage() - 1)"
+          [disabled]="currentPage() === 1"
+        >
+          &laquo;
+        </button>
+
+        @for (page of pages(); track page) {
+          <button
+            class="page-btn"
+            [class.active]="page === currentPage()"
+            (click)="goToPage(page)"
+          >
+            {{ page }}
+          </button>
+        }
+
+        <button
+          class="page-btn"
+          (click)="goToPage(currentPage() + 1)"
+          [disabled]="currentPage() === totalPages()"
+        >
+          &raquo;
+        </button>
+      </div>
+
+      <p class="pagination-info">
+        Page {{ currentPage() }} sur {{ totalPages() }} — {{ totalCount() }} événement(s)
+      </p>
+    }
+  }
+</div>

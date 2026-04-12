@@ -5,6 +5,7 @@ import { Contact } from './Features/contact/contact';
 import { Register } from './Features/register/register';
 import { Login } from './Features/login/login';
 import { RegisterAdmin } from './Features/register-admin/register-admin';
+import { CreateEvent } from './Features/create-event/create-event';
 
 export const routes: Routes = [
     {
@@ -38,5 +39,9 @@ export const routes: Routes = [
     {
         path : 'registerAdmin',
         component: RegisterAdmin
+    },
+    {
+        path : 'create-event',
+        component: CreateEvent
     }
 ];
