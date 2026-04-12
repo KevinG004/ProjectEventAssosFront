@@ -9,7 +9,6 @@ export interface UserFirstLogin {
   password: string;
   birthDate: Date; 
   gender: string;
-  passwordChanged: boolean;
 }
 
 export interface UserLogin {

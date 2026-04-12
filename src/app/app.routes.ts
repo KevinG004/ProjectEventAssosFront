@@ -4,6 +4,7 @@ import { Evenements } from './Features/evenements/evenements';
 import { Contact } from './Features/contact/contact';
 import { Register } from './Features/register/register';
 import { Login } from './Features/login/login';
+import { RegisterAdmin } from './Features/register-admin/register-admin';
 
 export const routes: Routes = [
     {
@@ -33,5 +34,9 @@ export const routes: Routes = [
     {
         path: 'login',
         component: Login
+    },
+    {
+        path : 'registerAdmin',
+        component: RegisterAdmin
     }
 ];
