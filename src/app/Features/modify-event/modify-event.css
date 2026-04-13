@@ -1,4 +1,4 @@
-.create-event-wrapper {
+.modify-event-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   padding: 20px;
 }
 
-.create-event-card {
+.modify-event-card {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@
   max-width: 840px;
 }
 
-.create-event-card h1 {
+.modify-event-card h1 {
   margin: 0 0 28px;
   font-size: 1.8rem;
   text-align: center;
@@ -35,6 +35,11 @@
   color: #37a337;
 }
 
+.optional {
+  font-weight: 400;
+  color: #999;
+  font-size: 0.8rem;
+}
 
 .form-group input,
 .form-group select,
@@ -74,6 +79,10 @@
   cursor: pointer;
 }
 
+.image-upload-area:hover {
+  border-color: #37a337;
+}
+
 .image-upload-label {
   background: #f5f5f5;
   color: #37a337;
@@ -85,6 +94,18 @@
   transition: background 0.2s;
 }
 
+.image-upload-label:hover {
+  background: #e8f5e9;
+}
+
+.image-input {
+  display: none;
+}
+
+.hint {
+  font-size: 0.78rem;
+  color: #999;
+}
 
 .error {
   font-size: 0.8rem;
@@ -115,7 +136,7 @@ button:disabled {
 }
 
 @media (max-width: 600px) {
-  .create-event-card {
+  .modify-event-card {
     padding: 24px 20px;
   }
 
