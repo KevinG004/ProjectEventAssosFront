@@ -41,7 +41,7 @@ export const routes: Routes = [
         component: RegisterAdmin
     },
     {
-        path : 'create-event',
+        path : 'createEvent',
         component: CreateEvent
     }
 ];

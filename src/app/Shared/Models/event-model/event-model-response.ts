@@ -15,9 +15,8 @@ export interface EventResponse {
 }
 
 export interface PaginatedEvents {
-  items: EventResponse[];
-  totalCount: number;
-  page: number;
+  events: EventResponse[];
+  nbreEvenements: number;
 }
 
 export enum StatusEvent {

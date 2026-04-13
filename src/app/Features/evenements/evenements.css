@@ -1,21 +1,148 @@
+.evenements-wrapper {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .evenements-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.evenements-header h1 {
+  font-size: 1.8rem;
+  color: #37a337;
+  margin: 0;
 }
 
 .btn-create {
-  background-color: #3b82f6;
+  background-color: #37a337;
   color: white;
   border: none;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
   font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background 0.2s;
+  text-decoration: none;
 }
 
 .btn-create:hover {
-  background-color: #2563eb;
+  background-color: #2d8a2d;
+}
+
+.loading,
+.no-events {
+  text-align: center;
+  color: #555;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.error-message {
+  text-align: center;
+  color: #e53e3e;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.event-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.event-img-placeholder {
+  width: 100%;
+  height: 180px;
+  background: #e8f5e9;
+}
+
+.event-body {
+  padding: 1.2rem;
+}
+
+.event-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #37a337;
+  margin: 0 0 0.5rem;
+}
+
+.event-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.page-btn {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #37a337;
+  color: #37a337;
+}
+
+.page-btn.active {
+  background: #37a337;
+  color: #fff;
+  border-color: #37a337;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 0.8rem;
 }

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { EventService } from '../../Core/Services/eventService';
 
 @Component({
   selector: 'app-create-event',
@@ -9,6 +11,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './create-event.css',
 })
 export class CreateEvent {
+  private readonly _eventService = inject(EventService);
+  private readonly _router = inject(Router);
+
   createEventForm: FormGroup;
   formInvalid = false;
   selectedImage: File | null = null;
@@ -30,16 +35,43 @@ export class CreateEvent {
     });
   }
 
-  onSubmit(): void {
-    if (!this.selectedImage) {
-      this.imageError = true;
+  onImageSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      this.selectedImage = input.files[0];
+      this.imageError = false;
     }
+  }
 
-    if (this.createEventForm.invalid || !this.selectedImage) {
+  onSubmit(): void {
+    if (this.createEventForm.invalid) {
       this.formInvalid = true;
       return;
     }
 
-    console.log('Formulaire valide', this.createEventForm.value, this.selectedImage);
+    const formValue = this.createEventForm.value;
+
+    const eventData = {
+      coverImage: null,
+      categorieId: formValue.categorieId,
+      name: formValue.name,
+      description: formValue.description,
+      place: formValue.place,
+      dateTimeStart: formValue.dateTimeStart,
+      dateTimeFinish: formValue.dateTimeFinish,
+      minParticipants: formValue.minParticipants,
+      maxParticipants: formValue.maxParticipants,
+      waitList: formValue.waitList,
+      dateLimiteInscription: formValue.dateLimiteInscription,
+    };
+
+    this._eventService.createEvent(eventData).subscribe({
+      next: () => {
+        this._router.navigate(['/evenements']);
+      },
+      error: () => {
+        this.formInvalid = true;
+      }
+    });
   }
 }

@@ -38,8 +38,8 @@ export class Evenements implements OnInit {
 
     this._eventService.getEvents(this.currentPage()).subscribe({
       next: (data) => {
-        this.events.set(data.items);
-        this.totalCount.set(data.totalCount);
+        this.events.set(data.events);
+        this.totalCount.set(data.nbreEvenements);
         this.loading.set(false);
       },
       error: () => {
